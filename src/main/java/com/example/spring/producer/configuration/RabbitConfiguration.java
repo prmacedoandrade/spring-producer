@@ -20,16 +20,15 @@ public class RabbitConfiguration {
 	private ConnectionFactory connectionFactory;
 	
 	@Bean
-	public SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory() {
+	SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory() {
 		SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
 		factory.setConnectionFactory(connectionFactory);
 		factory.setMessageConverter(jacksonConverter());
 		return factory;
-	};
-	
+	}
 	
 	@Bean
-	public RabbitTemplate rabbitTemplate() {
+	RabbitTemplate rabbitTemplate() {
 		RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
 		rabbitTemplate.setMessageConverter(jacksonConverter());
 		return rabbitTemplate;
@@ -47,8 +46,5 @@ public class RabbitConfiguration {
 		
 		return new Jackson2JsonMessageConverter(mapper);
 	}
-	
-	
-	
 	
 }

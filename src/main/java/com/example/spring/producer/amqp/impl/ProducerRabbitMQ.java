@@ -27,7 +27,7 @@ public class ProducerRabbitMQ implements AmqpProducer<Message> {
 		try {
 			rabbitTemplate.convertAndSend(exchange, queue, message);
 		} catch (Exception ex) {
-			// Envia para a DeadLetter
+			// Send to dead letter
 			throw new AmqpRejectAndDontRequeueException(ex);
 			
 		}

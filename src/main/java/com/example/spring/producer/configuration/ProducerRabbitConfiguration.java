@@ -44,17 +44,19 @@ public class ProducerRabbitConfiguration {
 	}
 
 	@Bean
-	public Binding bindingQueue() {
+	Binding bindingQueue() {
 
 		return BindingBuilder.bind(queue())
-				.to(exchange()).with(queue);
+				.to(exchange())
+				.with(queue);
 
 	}
 
 	@Bean
-	public Binding bindingDeadLetter() {
+	Binding bindingDeadLetter() {
 		return BindingBuilder.bind(deadLetter())
-				.to(exchange()).with(deadLetter);
+				.to(exchange())
+				.with(deadLetter);
 	}
 	
 }
