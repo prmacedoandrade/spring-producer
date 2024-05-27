@@ -1,5 +1,5 @@
 # spring-producer
-Project used to study RabbitMQ
+Old project used to study RabbitMQ
 
 To run the project:
 
